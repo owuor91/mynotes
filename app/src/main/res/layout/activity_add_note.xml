@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="io.github.owuor91.notesapp.AddNoteActivity"
+    >
+
+  <android.support.design.widget.AppBarLayout
+      android:id="@+id/appBar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:theme="@style/AppTheme.AppBarOverlay"
+      >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        >
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/addNote"
+          android:textColor="@android:color/white"
+          android:textSize="@dimen/toolbarTitleTextSize"
+          />
+    </android.support.v7.widget.Toolbar>
+
+  </android.support.design.widget.AppBarLayout>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="@dimen/defaultMargin"
+      android:layout_marginRight="@dimen/defaultMargin"
+      android:layout_marginTop="@dimen/defaultMargin"
+      android:orientation="vertical"
+      app:layout_behavior="@string/appbar_scrolling_view_behavior"
+      >
+    <EditText
+        android:id="@+id/etTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/defaultMargin"
+        android:hint="Title..."
+        />
+
+    <EditText
+        android:id="@+id/etNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/marginSM"
+        android:background="@drawable/note_input_background"
+        android:gravity="top"
+        android:hint="Note..."
+        android:inputType="textMultiLine"
+        android:lines="6"
+        android:padding="@dimen/marginSM"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/defaultMargin"
+        >
+      <TextView
+          android:id="@+id/tvAddPhoto"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:drawableLeft="@drawable/ic_add_a_photo_blue_24dp"
+          android:drawablePadding="@dimen/marginTiny"
+          android:gravity="center_vertical"
+          android:text="@string/addPhoto"
+          />
+
+      <TextView
+          android:id="@+id/tvAddVoiceNote"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:drawableLeft="@drawable/ic_keyboard_voice_blue_24dp"
+          android:drawablePadding="@dimen/marginTiny"
+          android:gravity="center_vertical"
+          android:text="@string/addVoiceNote"
+          />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnSaveNote"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btnHeight"
+        android:layout_marginTop="@dimen/btnHeight"
+        android:background="@drawable/button_blue_background"
+        android:text="@string/save"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/textLG"
+        />
+  </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
