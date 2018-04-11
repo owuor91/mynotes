@@ -28,6 +28,15 @@
           android:name="android.support.PARENT_ACTIVITY"
           android:value="io.github.owuor91.notesapp.MainActivity"/>
     </activity>
+    <activity
+        android:name=".ViewNoteActivity"
+        android:label="@string/title_activity_view_note"
+        android:parentActivityName=".MainActivity"
+        android:theme="@style/AppTheme.NoActionBar">
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="io.github.owuor91.notesapp.MainActivity"/>
+    </activity>
   </application>
 
 </manifest>

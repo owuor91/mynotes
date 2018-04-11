@@ -1,9 +1,10 @@
 <resources>
   <dimen name="fab_margin">16dp</dimen>
   <dimen name="defaultMargin">16dp</dimen>
-  <dimen name="toolbarTitleTextSize">20sp</dimen>
+  <dimen name="toolbarTitleTextSize">24sp</dimen>
   <dimen name="marginSM">10dp</dimen>
   <dimen name="marginTiny">4dp</dimen>
   <dimen name="btnHeight">36dp</dimen>
   <dimen name="textLG">18sp</dimen>
+  <dimen name="marginLG">30dp</dimen>
 </resources>
