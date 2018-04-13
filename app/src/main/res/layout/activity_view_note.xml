@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context="io.github.owuor91.notesapp.ViewNoteActivity"
+    tools:context="io.github.owuor91.notesapp.ui.ViewNoteActivity"
     >
 
   <android.support.design.widget.AppBarLayout
@@ -144,7 +144,7 @@
         />
 
     <TextView
-        android:id="@+id/tvEdit"
+        android:id="@+id/tvNoteItemEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/marginLG"
@@ -154,7 +154,7 @@
         />
 
     <TextView
-        android:id="@+id/tvDelete"
+        android:id="@+id/tvNoteItemDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_delete_forever_blue_24dp"

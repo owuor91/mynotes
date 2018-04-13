@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context="io.github.owuor91.notesapp.AddNoteActivity"
+    tools:context="io.github.owuor91.notesapp.ui.AddNoteActivity"
     >
 
   <android.support.design.widget.AppBarLayout

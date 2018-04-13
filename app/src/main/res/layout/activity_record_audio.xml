@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="io.github.owuor91.notesapp.RecordAudioActivity"
+    tools:context="io.github.owuor91.notesapp.ui.RecordAudioActivity"
     >
 
   <android.support.design.widget.AppBarLayout
@@ -35,17 +35,17 @@
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      app:layout_behavior="@string/appbar_scrolling_view_behavior"
       android:orientation="vertical"
+      app:layout_behavior="@string/appbar_scrolling_view_behavior"
       >
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gifImageView"
         android:layout_width="match_parent"
         android:layout_height="250dp"
+        android:layout_marginBottom="@dimen/marginLG"
         android:scaleType="fitXY"
         android:src="@drawable/stoprecording"
-        android:layout_marginBottom="@dimen/marginLG"
         />
 
 
@@ -60,18 +60,18 @@
           android:id="@+id/tvStartRecording"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:drawableTop="@drawable/ic_mic_blue_48dp"
           android:layout_alignParentLeft="true"
-          android:text="RECORD"
+          android:drawableTop="@drawable/ic_mic_blue_48dp"
           android:gravity="center_horizontal"
+          android:text="RECORD"
           />
 
       <TextView
           android:id="@+id/tvCounter"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_gravity="center_horizontal"
           android:layout_centerHorizontal="true"
+          android:layout_gravity="center_horizontal"
           android:gravity="center_vertical"
           android:text="0:00"
           android:textSize="@dimen/textLG"
@@ -81,8 +81,8 @@
           android:id="@+id/tvStopRecording"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:drawableTop="@drawable/ic_stop_red_600_48dp"
           android:layout_alignParentRight="true"
+          android:drawableTop="@drawable/ic_stop_red_600_48dp"
           android:gravity="center_horizontal"
           android:text="STOP"
           />
