@@ -25,6 +25,9 @@ public class Note {
 
   private Date lastModified;
 
+  public Note() {
+  }
+
   private Note(Builder builder) {
     setId(builder.id);
     setTitle(builder.title);
