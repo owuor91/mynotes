@@ -13,4 +13,6 @@
   <string name="delete">Delete</string>
   <string name="edit">Edit</string>
   <string name="title_activity_view_note">ViewNoteActivity</string>
+  <string name="title_activity_record_audio">RecordAudioActivity</string>
+  <string name="recordVoice">Record Voice Note</string>
 </resources>

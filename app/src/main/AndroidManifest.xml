@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.github.owuor91.notesapp">
 
+  <uses-permission android:name="android.permission.INTERNET" />
+
   <application
       android:allowBackup="true"
       android:icon="@mipmap/ic_launcher"
@@ -36,6 +38,15 @@
       <meta-data
           android:name="android.support.PARENT_ACTIVITY"
           android:value="io.github.owuor91.notesapp.MainActivity"/>
+    </activity>
+    <activity
+        android:name=".RecordAudioActivity"
+        android:label="@string/title_activity_record_audio"
+        android:parentActivityName=".AddNoteActivity"
+        android:theme="@style/AppTheme.NoActionBar">
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="io.github.owuor91.notesapp.AddNoteActivity"/>
     </activity>
   </application>
 
