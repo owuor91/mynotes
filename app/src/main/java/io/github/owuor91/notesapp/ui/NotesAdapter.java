@@ -1,6 +1,8 @@
 package io.github.owuor91.notesapp.ui;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +39,12 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
     if (note.getVoiceUrl() != null && !note.getVoiceUrl().isEmpty()) {
       holder.ivImage.setImageResource(R.drawable.ic_play_circle_outline_blue_48dp);
     }
+
+    holder.cardViewRoot.setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        context.startActivity(new Intent(context, ViewNoteActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+      }
+    });
   }
 
   @Override public int getItemCount() {
@@ -46,6 +54,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
   public static class ViewHolder extends RecyclerView.ViewHolder {
     TextView tvTitle, tvText, tvEdit, tvDelete;
     ImageView ivImage;
+    CardView cardViewRoot;
 
     public ViewHolder(View view) {
       super(view);
@@ -54,6 +63,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
       tvEdit = view.findViewById(R.id.tvNoteItemEdit);
       tvDelete = view.findViewById(R.id.tvNoteItemDelete);
       ivImage = view.findViewById(R.id.imgNoteItem);
+      cardViewRoot = view.findViewById(R.id.cardViewRoot);
     }
   }
 }

@@ -45,16 +45,63 @@ public class MainActivity extends AppCompatActivity {
     List<Note> noteList = new ArrayList<Note>();
 
     Note note1 = Note.newBuilder()
-        .withTitle("Title 1")
-        .withText("text 1")
+        .withTitle("Ut enim ad minim veniam")
+        .withText(
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat")
         .withLongitude(2.437864)
         .withLatitude(48.438268)
         .build();
 
     Note note2 =
-        Note.newBuilder().withTitle("Title 2").withText("text 2").withLongitude(3.473864).withLatitude(4.36472).build();
+        Note.newBuilder()
+            .withTitle("Ut enim ad minim veniam")
+            .withText(
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore")
+            .withLongitude(3.473864)
+            .withLatitude(4.36472)
+            .build();
+
+    Note note3 =
+        Note.newBuilder()
+            .withTitle("Ut enim ad minim veniam")
+            .withText(
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat")
+            .withLongitude(3.473864)
+            .withLatitude(4.36472)
+            .build();
+
+    Note note4 =
+        Note.newBuilder()
+            .withTitle("Ut enim ad minim veniam")
+            .withText(
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore")
+            .withLongitude(3.473864)
+            .withLatitude(4.36472)
+            .build();
+
+    Note note5 = Note.newBuilder()
+        .withTitle("Ut enim ad minim veniam")
+        .withText(
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat")
+        .withLongitude(2.437864)
+        .withLatitude(48.438268)
+        .build();
+
+    Note note6 =
+        Note.newBuilder()
+            .withTitle("Ut enim ad minim veniam")
+            .withText(
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore")
+            .withLongitude(3.473864)
+            .withLatitude(4.36472)
+            .build();
+
     noteList.add(note1);
     noteList.add(note2);
+    noteList.add(note3);
+    noteList.add(note4);
+    noteList.add(note5);
+    noteList.add(note6);
 
     NotesAdapter notesAdapter = new NotesAdapter(getBaseContext(), noteList);
     rvNotes.setAdapter(notesAdapter);
