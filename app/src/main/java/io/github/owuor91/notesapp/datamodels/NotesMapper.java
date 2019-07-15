@@ -23,7 +23,7 @@ public class NotesMapper {
     return NoteDbModel.newBuilder()
         .withId(note.getId())
         .withTitle(note.getTitle())
-        .withText(note.getText())
+        .withText(note.getNoteText())
         .withImageUrl(note.getImageUrl())
         .withLongitude(note.getLongitude())
         .withLatitude(note.getLatitude())

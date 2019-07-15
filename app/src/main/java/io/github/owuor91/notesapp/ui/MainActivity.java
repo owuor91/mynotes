@@ -7,14 +7,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import io.github.owuor91.notesapp.R;
 import io.github.owuor91.notesapp.datamodels.Note;
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
   RecyclerView rvNotes;
+  public static final String API_URL = "https://akirachixnotesapi.herokuapp.com/api/v1/notes";
+  public static final String TAG = "NOTES_API";
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -37,73 +48,45 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(getBaseContext(), ViewNoteActivity.class));
       }
     });
-    setupRecyclerView();
+    getNotes();
   }
 
-  private void setupRecyclerView() {
+  private void setupRecyclerView(List<Note> noteList) {
     rvNotes.setLayoutManager(new LinearLayoutManager(getBaseContext()));
-    List<Note> noteList = new ArrayList<Note>();
-
-    Note note1 = Note.newBuilder()
-        .withTitle("Ut enim ad minim veniam")
-        .withText(
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat")
-        .withLongitude(2.437864)
-        .withLatitude(48.438268)
-        .build();
-
-    Note note2 =
-        Note.newBuilder()
-            .withTitle("Ut enim ad minim veniam")
-            .withText(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore")
-            .withLongitude(3.473864)
-            .withLatitude(4.36472)
-            .build();
-
-    Note note3 =
-        Note.newBuilder()
-            .withTitle("Ut enim ad minim veniam")
-            .withText(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat")
-            .withLongitude(3.473864)
-            .withLatitude(4.36472)
-            .build();
-
-    Note note4 =
-        Note.newBuilder()
-            .withTitle("Ut enim ad minim veniam")
-            .withText(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore")
-            .withLongitude(3.473864)
-            .withLatitude(4.36472)
-            .build();
-
-    Note note5 = Note.newBuilder()
-        .withTitle("Ut enim ad minim veniam")
-        .withText(
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat")
-        .withLongitude(2.437864)
-        .withLatitude(48.438268)
-        .build();
-
-    Note note6 =
-        Note.newBuilder()
-            .withTitle("Ut enim ad minim veniam")
-            .withText(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore")
-            .withLongitude(3.473864)
-            .withLatitude(4.36472)
-            .build();
-
-    noteList.add(note1);
-    noteList.add(note2);
-    noteList.add(note3);
-    noteList.add(note4);
-    noteList.add(note5);
-    noteList.add(note6);
-
     NotesAdapter notesAdapter = new NotesAdapter(getBaseContext(), noteList);
     rvNotes.setAdapter(notesAdapter);
   }
+
+  private void getNotes() {
+    StringRequest stringRequest = new StringRequest(Request.Method.GET, API_URL, new Response.Listener<String>() {
+      @Override public void onResponse(String response) {
+        Log.d(TAG, response);
+        List<Note> noteList = new ArrayList<Note>();
+
+        try {
+          JSONArray jsonArray = new JSONArray(response);
+          for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            int id = jsonObject.getInt("id");
+            String title = jsonObject.getString("title");
+            String noteText = jsonObject.getString("noteText");
+            Note note = new Note(id, title, noteText);
+            noteList.add(note);
+          }
+        } catch (Exception e) {
+          Log.e(TAG, e.getMessage());
+        }
+
+        setupRecyclerView(noteList);
+      }
+    }, new Response.ErrorListener() {
+      @Override public void onErrorResponse(VolleyError error) {
+        Log.d(TAG, error.getMessage());
+      }
+    });
+
+    RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
+    requestQueue.add(stringRequest);
+  }
+
 }

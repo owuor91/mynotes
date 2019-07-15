@@ -38,10 +38,10 @@ public class RecordAudioActivity extends AppCompatActivity {
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-    tvStartRecording = (TextView) findViewById(R.id.tvStartRecording);
-    tvStopRecording = (TextView) findViewById(R.id.tvStopRecording);
-    gifImageView = (GifImageView) findViewById(R.id.gifImageView);
-    tvCounter = (TextView) findViewById(R.id.tvCounter);
+    tvStartRecording = findViewById(R.id.tvStartRecording);
+    tvStopRecording = findViewById(R.id.tvStopRecording);
+    gifImageView = findViewById(R.id.gifImageView);
+    tvCounter = findViewById(R.id.tvCounter);
 
     tvStartRecording.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
@@ -123,7 +123,7 @@ public class RecordAudioActivity extends AppCompatActivity {
 
   /*private void startPlaying() {
     playing = true;
-    tvPlayAudio.setText("Stop playing");
+    tvPlayAudio.setNoteText("Stop playing");
     mediaPlayer = new MediaPlayer();
     try {
       mediaPlayer.setDataSource(fileName);
@@ -136,7 +136,7 @@ public class RecordAudioActivity extends AppCompatActivity {
 
   private void stopPlaying() {
     playing = false;
-    tvPlayAudio.setText("Start playing");
+    tvPlayAudio.setNoteText("Start playing");
     mediaPlayer.release();
     mediaPlayer = null;
   }*/

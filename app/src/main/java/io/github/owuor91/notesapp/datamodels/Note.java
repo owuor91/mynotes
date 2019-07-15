@@ -11,7 +11,7 @@ public class Note {
 
   private String title;
 
-  private String text;
+  private String noteText;
 
   private String imageUrl;
 
@@ -28,10 +28,16 @@ public class Note {
   public Note() {
   }
 
+  public Note(int id, String title, String noteText) {
+    this.id = id;
+    this.title = title;
+    this.noteText = noteText;
+  }
+
   private Note(Builder builder) {
     setId(builder.id);
     setTitle(builder.title);
-    setText(builder.text);
+    setNoteText(builder.text);
     setImageUrl(builder.imageUrl);
     setLatitude(builder.latitude);
     setLongitude(builder.longitude);
@@ -60,12 +66,12 @@ public class Note {
     this.title = title;
   }
 
-  public String getText() {
-    return text;
+  public String getNoteText() {
+    return noteText;
   }
 
-  public void setText(String text) {
-    this.text = text;
+  public void setNoteText(String noteText) {
+    this.noteText = noteText;
   }
 
   public String getImageUrl() {

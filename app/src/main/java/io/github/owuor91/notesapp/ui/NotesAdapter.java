@@ -35,7 +35,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
   @Override public void onBindViewHolder(ViewHolder holder, int position) {
     Note note = noteList.get(position);
     holder.tvTitle.setText(note.getTitle());
-    holder.tvText.setText(note.getText());
+    holder.tvText.setText(note.getNoteText());
     if (note.getVoiceUrl() != null && !note.getVoiceUrl().isEmpty()) {
       holder.ivImage.setImageResource(R.drawable.ic_play_circle_outline_blue_48dp);
     }
